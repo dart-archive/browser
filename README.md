@@ -1,33 +1,37 @@
-This package contains dart.js, and previously contained interop.js
+# This package is no longer maintained.
 
-dart.js
-=======
+Supports using Dartium during development for projects using Dart v1.
+
+For projects using Dart v2, this package is no longer needed.
+See the [Dart 2 migration guide](https://webdev.dartlang.org/dart-2) for
+details.
+
+# dart.js
 
 The dart.js file is used in Dart browser apps to check for native Dart support
-and either (a) bootstrap Dartium or (b) load compiled JS instead.  Previously,
-we've recommended that you add a script tag pointing the version of dart.js in
-our repository.  This doesn't work offline and also results in slower startup
-(see [dartbug.com/6723](http://dartbug.com/6723)).
-
-Instead, we now recommend that you install dart.js via the following steps:
+and either (a) bootstrap Dartium or (b) load compiled JS instead.
 
 1. Add the following to your pubspec.yaml:
-  dependencies:
-    browser: any
+
+    ```yaml
+    dev_dependencies:
+      browser: ^0.10.0
+    ```
 
 2. Run pub install.
 
 3. Use a relative script tag in your html to the installed version:
 
-    `<script src="packages/browser/dart.js"></script>`
+    ```html
+    <script src="packages/browser/dart.js"></script>
+    ```
 
 If you do not wish to use pub, you may host a copy of this file locally instead.
 In this case, you will need to update it yourself as necessary.  We reserve the
 right to move the old file in the repository, so we no longer recommend linking
 to it directly.
 
-interop.js
-==========
+# interop.js
 
 This script was required for dart:js interop to work, but it is no longer
 needed. The functionality is now supported by dart:js directly.
